@@ -21,7 +21,7 @@ export function ConnectionNotice({ status }: { status: ConnectionStatus }) {
           <li>
             Copy <code>.env.example</code> to <code>.env.local</code>.
           </li>
-          <li>Paste your hosted project&apos;s URL and anon (publishable) key from the Supabase dashboard.</li>
+          <li>Paste your hosted project&apos;s URL and publishable key from the Supabase dashboard (Project Settings, API Keys).</li>
           <li>
             Restart <code>pnpm dev</code>.
           </li>
