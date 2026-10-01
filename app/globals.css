@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+:root,
+[data-theme="light"] {
+  --paper: #f4f2ff;
+  --card: #ffffff;
+  --ink: #1b1740;
+  --soft: #5a5680;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --paper: #14112e;
+  --card: #221e45;
+  --ink: #f2efff;
+  --soft: #a9a5d0;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #14112e;
+    --card: #221e45;
+    --ink: #f2efff;
+    --soft: #a9a5d0;
+    color-scheme: dark;
+  }
+}
+
+:root {
+  /* Accents are the same in both themes. */
+  --yellow: #ffc93c;
+  --pink: #ff7ab6;
+  --mint: #5ee0b0;
+  --lilac: #8b7cff;
+  --danger: #e5484d;
+
+  /* Text on yellow, pink, mint, and lilac is always this, in both themes. */
+  --on-accent: #1b1740;
+
+  --yellow-tint: #ffe49e;
+  --pink-tint: #ffbddb;
+  --mint-tint: #aff0d8;
+  --lilac-tint: #c5beff;
+}
+
+[data-theme] {
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-heading {
+  font-family: var(--font-heading), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+:focus-visible {
+  outline: 3px solid var(--lilac);
+  outline-offset: 2px;
+}
+
+dialog::backdrop {
+  background-color: rgb(20 17 46 / 0.55);
+}
+
+/* Transform only: content stays visible even if the animation never runs. */
+@keyframes pop-in {
+  from {
+    transform: scale(0.96) translateY(6px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.animate-pop-in {
+  animation: pop-in 160ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
